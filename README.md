@@ -1,6 +1,19 @@
-<a href="https://www.nylas.com/">
-    <img src="https://brand.nylas.com/assets/downloads/logo_horizontal_png/Nylas-Logo-Horizontal-Blue_.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
-</a>
+
+# Dover Fork
+
+We forked this sdk so we can host our own dover-nylas sdk so we can have multiple versions of the same sdk installed
+To publish a dover-nylas version of an existing version of the nylas sdk, we need to do the following:
+- git checkout tag-name-of-the-version ex: git checkout v6.0.0
+- override the package name and add some helpers. You can do that by cherry picking a commit with the helpers onto the
+checkout tag using `git cherry-pick df4f62b3884bce622b6938613d5299367b149e79`
+- resolve conflicts if any and complete the cherry-pick with `git cherry-pick --continue`
+- create a new branch with the name of the version prefixed with dover  ex: git checkout -b dover-v6.0.0
+- push up the new branch
+- create a new tag with the name of the version prefixed with dover ex: git tag dover-v6.0.0
+- push up the new tag with `git push origin tag dover-v6.0.0`
+- install requirements locally with make sync-dev-deps or `pip install -e ".[release,test,docs]"`
+- publish the version to our pypi with `PACKAGR_TOKEN=<token from 1p> make publish-package` which is in the makefile
+in the cherrypicked commit. OR `PACKAGR_TOKEN=<token from 1p> rm -rf dist *.egg-info && python setup.py sdist && twine upload dist/* --repository-url https://api.packagr.app/88ncBXhza/ -u '' -p ${PACKAGR_TOKEN}`
 
 # Nylas Python SDK
 
