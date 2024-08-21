@@ -106,7 +106,7 @@ def main():
             sys.exit()
 
     setup(
-        name="nylas",
+        name="dover-nylas",
         version=VERSION,
         python_requires=">=3.8",
         packages=find_packages(),
@@ -119,12 +119,11 @@ def main():
             "release": RELEASE_DEPENDENCIES,
         },
         cmdclass={"test": PyTest},
-        author="Nylas Team",
-        author_email="support@nylas.com",
-        description="Python bindings for the Nylas API platform.",
-        license="MIT",
-        keywords="inbox app appserver email nylas contacts calendar",
-        url="https://github.com/nylas/nylas-python",
+        author="Dover Team",
+        author_email="support@dover.com",
+        description="Dover Fork of Python bindings for the Nylas API platform.",
+        license="None",
+        url="https://https://github.com/doverhq/nylas-python",
         long_description_content_type="text/markdown",
         long_description=README,
     )
