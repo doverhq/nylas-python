@@ -1,10 +1,10 @@
 from unittest.mock import Mock
 
-from nylas.models.application_details import ApplicationDetails
+from dover_nylas.models.application_details import ApplicationDetails
 
-from nylas.resources.redirect_uris import RedirectUris
+from dover_nylas.resources.redirect_uris import RedirectUris
 
-from nylas.resources.applications import Applications
+from dover_nylas.resources.applications import Applications
 
 
 class TestApplications:

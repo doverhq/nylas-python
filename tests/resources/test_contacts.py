@@ -1,6 +1,6 @@
-from nylas.resources.contacts import Contacts
+from dover_nylas.resources.contacts import Contacts
 
-from nylas.models.contacts import (
+from dover_nylas.models.contacts import (
     Contact,
     ContactEmail,
     ContactGroupId,

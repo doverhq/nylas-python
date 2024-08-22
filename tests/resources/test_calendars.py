@@ -1,6 +1,6 @@
-from nylas.resources.calendars import Calendars
+from dover_nylas.resources.calendars import Calendars
 
-from nylas.models.calendars import Calendar
+from dover_nylas.models.calendars import Calendar
 
 
 class TestCalendar:

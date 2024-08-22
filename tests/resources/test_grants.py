@@ -1,5 +1,5 @@
-from nylas.models.grants import Grant
-from nylas.resources.grants import Grants
+from dover_nylas.models.grants import Grant
+from dover_nylas.resources.grants import Grants
 
 
 class TestGrants:

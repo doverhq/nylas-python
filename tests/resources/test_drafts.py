@@ -1,7 +1,7 @@
 from unittest.mock import patch, Mock
 
-from nylas.models.drafts import Draft
-from nylas.resources.drafts import Drafts
+from dover_nylas.models.drafts import Draft
+from dover_nylas.resources.drafts import Drafts
 
 
 class TestDraft:
@@ -173,7 +173,7 @@ class TestDraft:
         }
 
         with patch(
-            "nylas.resources.drafts._build_form_request", return_value=mock_encoder
+            "dover_nylas.resources.drafts._build_form_request", return_value=mock_encoder
         ):
             drafts.create(identifier="abc-123", request_body=request_body)
 
@@ -255,7 +255,7 @@ class TestDraft:
         }
 
         with patch(
-            "nylas.resources.drafts._build_form_request", return_value=mock_encoder
+            "dover_nylas.resources.drafts._build_form_request", return_value=mock_encoder
         ):
             drafts.update(
                 identifier="abc-123", draft_id="draft-123", request_body=request_body

@@ -50,7 +50,7 @@ jobs:
         run: pip install pylint black
 
       - name: Run pylint
-        run: pylint nylas
+        run: pylint dover_nylas
 
       - name: Run black
         run: black .

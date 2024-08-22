@@ -1,6 +1,6 @@
-from nylas.resources.folders import Folders
+from dover_nylas.resources.folders import Folders
 
-from nylas.models.folders import Folder
+from dover_nylas.models.folders import Folder
 
 
 class TestFolder:

@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
-from nylas.models.attachments import Attachment, FindAttachmentQueryParams
-from nylas.resources.attachments import Attachments
+from dover_nylas.models.attachments import Attachment, FindAttachmentQueryParams
+from dover_nylas.resources.attachments import Attachments
 
 
 class TestAttachments:

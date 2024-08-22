@@ -15,7 +15,7 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [ nylas ]
+          paths: [ dover_nylas ]
   - gen-files:
       scripts:
         - scripts/generate-docs.py

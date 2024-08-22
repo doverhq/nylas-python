@@ -2,11 +2,11 @@ from unittest.mock import patch, Mock
 
 import pytest
 import requests
-from nylas.models.response import Response, ListResponse
+from dover_nylas.models.response import Response, ListResponse
 
-from nylas.handler.http_client import HttpClient
+from dover_nylas.handler.http_client import HttpClient
 
-from nylas import Client
+from dover_nylas import Client
 
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def http_client():
 @pytest.fixture
 def patched_version_and_sys():
     with patch("sys.version_info", (1, 2, 3, "final", 5)), patch(
-        "nylas.handler.http_client.__VERSION__", "2.0.0"
+        "dover_nylas.handler.http_client.__VERSION__", "2.0.0"
     ):
         yield
 
@@ -53,7 +53,7 @@ def mock_session_timeout():
 @pytest.fixture
 def http_client_list_response():
     with patch(
-        "nylas.models.response.ListResponse.from_dict",
+        "dover_nylas.models.response.ListResponse.from_dict",
         return_value=ListResponse([], "bar"),
     ):
         mock_http_client = Mock()
@@ -76,7 +76,7 @@ def http_client_list_response():
 @pytest.fixture
 def http_client_response():
     with patch(
-        "nylas.models.response.Response.from_dict", return_value=Response({}, "bar")
+        "dover_nylas.models.response.Response.from_dict", return_value=Response({}, "bar")
     ):
         mock_http_client = Mock()
         mock_http_client._execute.return_value = {

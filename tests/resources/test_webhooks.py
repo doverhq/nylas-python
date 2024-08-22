@@ -1,7 +1,7 @@
 import pytest
 
-from nylas.models.webhooks import Webhook, WebhookTriggers
-from nylas.resources.webhooks import Webhooks, extract_challenge_parameter
+from dover_nylas.models.webhooks import Webhook, WebhookTriggers
+from dover_nylas.resources.webhooks import Webhooks, extract_challenge_parameter
 
 
 class TestWebhooks:

@@ -1,8 +1,8 @@
 from unittest.mock import patch, Mock
 
-from nylas.models.messages import Message
-from nylas.resources.messages import Messages
-from nylas.resources.smart_compose import SmartCompose
+from dover_nylas.models.messages import Message
+from dover_nylas.resources.messages import Messages
+from dover_nylas.resources.smart_compose import SmartCompose
 
 
 class TestMessage:
@@ -230,7 +230,7 @@ class TestMessage:
         }
 
         with patch(
-            "nylas.resources.messages._build_form_request", return_value=mock_encoder
+            "dover_nylas.resources.messages._build_form_request", return_value=mock_encoder
         ):
             messages.send(identifier="abc-123", request_body=request_body)
 

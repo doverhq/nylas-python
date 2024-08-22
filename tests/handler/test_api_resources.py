@@ -1,7 +1,7 @@
 from unittest.mock import patch, Mock
 
 import pytest
-from nylas.handler.api_resources import (
+from dover_nylas.handler.api_resources import (
     ListableApiResource,
     FindableApiResource,
     CreatableApiResource,
@@ -9,11 +9,11 @@ from nylas.handler.api_resources import (
     DestroyableApiResource,
 )
 
-from nylas.handler.http_client import (
+from dover_nylas.handler.http_client import (
     HttpClient,
 )
-from nylas.models.calendars import Calendar
-from nylas.models.response import (
+from dover_nylas.models.calendars import Calendar
+from dover_nylas.models.response import (
     ListResponse,
     Response,
     DeleteResponse,

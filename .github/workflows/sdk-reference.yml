@@ -37,7 +37,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: nylas-python-sdk-reference
+          projectName: dover_nylas-python-sdk-reference
           directory: site
           wranglerVersion: "3"
           branch: ${{ env.CLOUDFLARE_BRANCH }}

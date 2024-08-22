@@ -1,5 +1,5 @@
-from nylas.models.credentials import Credential
-from nylas.resources.credentials import Credentials
+from dover_nylas.models.credentials import Credential
+from dover_nylas.resources.credentials import Credentials
 
 
 class TestCredentials:

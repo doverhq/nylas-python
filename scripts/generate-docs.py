@@ -19,10 +19,10 @@ excluded_files = [
 nav = mkdocs_gen_files.Nav()
 
 # Traverse through SDK source files to generate markdown docs for them
-for path in sorted(Path("nylas").rglob("*.py")):
+for path in sorted(Path("dover_nylas").rglob("*.py")):
     # Calculate paths
-    module_path = path.relative_to("nylas").with_suffix("")
-    doc_path = path.relative_to("nylas").with_suffix(".md")
+    module_path = path.relative_to("dover_nylas").with_suffix("")
+    doc_path = path.relative_to("dover_nylas").with_suffix(".md")
     full_doc_path = Path("reference", doc_path)
 
     # Skip excluded files

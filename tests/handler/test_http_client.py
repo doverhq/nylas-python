@@ -2,12 +2,12 @@ from unittest.mock import Mock
 
 import pytest
 
-from nylas.handler.http_client import (
+from dover_nylas.handler.http_client import (
     HttpClient,
     _build_query_params,
     _validate_response,
 )
-from nylas.models.errors import NylasApiError, NylasOAuthError
+from dover_nylas.models.errors import NylasApiError, NylasOAuthError
 
 
 class TestData:

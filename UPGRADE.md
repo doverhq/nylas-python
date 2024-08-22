@@ -9,7 +9,7 @@ This guide will help you upgrade your environment to use the new SDK.
 To upgrade to the new Python SDK, you must update your dependencies to use the new version. You can do this by installing the newest version of the SDK using pip:
 
 ```bash
-pip install nylas --pre
+pip install dover_nylas --pre
 ```
 
 **Note**: The minimum Python version is now the lowest supported LTS: Python v3.8.
@@ -17,7 +17,7 @@ pip install nylas --pre
 The first step to using the new SDK is to initialize a new `nylas` instance. You can do this by passing your API key to the constructor:
 
 ```python
-from nylas import Client
+from dover_nylas import Client
 
 nylas = Client(
     api_key="API_KEY",
@@ -55,7 +55,7 @@ To make requests to the Nylas API, you use the `nylas` instance that you configu
 The Python SDK is organized into different resources corresponding to each of the Nylas APIs. Each resource includes all of the available methods to make requests to its respective API. For example, you can use this code to get a list of Calendars:
 
 ```python
-from nylas import Client
+from dover_nylas import Client
 
 nylas = Client(
     api_key="API_KEY",
@@ -76,18 +76,18 @@ The Nylas API v3 has standard response objects for all requests, with the except
 Both classes also support destructuring. This means you can use code like this to manipulate the data:
 
 ```python
-from nylas import Client
+from dover_nylas import Client
 
 nylas = Client(
     api_key="API_KEY",
 )
 
 response = nylas.calendars.list(identifier="GRANT_ID")
-calendars = response.data # The list of calendars
+calendars = response.data  # The list of calendars
 
 # Or
 
-calendars, request_id = nylas.calendars.list(identifier="CALENDAR_ID") # The list of calendars and the request ID
+calendars, request_id = nylas.calendars.list(identifier="CALENDAR_ID")  # The list of calendars and the request ID
 ```
 
 ### Pagination
@@ -97,7 +97,7 @@ The Nylas API v3 uses a new way to paginate responses by returning a `next_curso
 Currently, the Nylas Python SDK doesn't support pagination out of the box, but this is something we're looking to add in the future. Instead, you can use `next_cursor` to make a request to the next page:
 
 ```python
-from nylas import Client
+from dover_nylas import Client
 
 nylas = Client(
     api_key="API_KEY",
@@ -143,7 +143,7 @@ Note that you don't need to use the `grant_id` to make requests. Instead, you ca
 This code demonstrates how to authenticate a user into a Nylas app:
 
 ```python
-from nylas import Client
+from dover_nylas import Client
 
 nylas = Client(
     api_key="API_KEY",

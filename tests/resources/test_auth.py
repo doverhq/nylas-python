@@ -1,14 +1,14 @@
 from unittest import mock
 from unittest.mock import Mock, patch
 
-from nylas.models.auth import (
+from dover_nylas.models.auth import (
     CodeExchangeResponse,
     TokenInfoResponse,
     ProviderDetectResponse,
 )
-from nylas.models.grants import Grant
+from dover_nylas.models.grants import Grant
 
-from nylas.resources.auth import (
+from dover_nylas.resources.auth import (
     _hash_pkce_secret,
     _build_query,
     _build_query_with_pkce,
@@ -20,7 +20,7 @@ from nylas.resources.auth import (
 class TestAuth:
     def test_hash_pkce_secret(self):
         assert (
-            _hash_pkce_secret("nylas")
+            _hash_pkce_secret("dover_nylas")
             == "ZTk2YmY2Njg2YTNjMzUxMGU5ZTkyN2RiNzA2OWNiMWNiYTliOTliMDIyZjQ5NDgzYTZjZTMyNzA4MDllNjhhMg"
         )
 
@@ -162,7 +162,7 @@ class TestAuth:
         )
 
     def test_exchange_code_for_token_no_secret(self, http_client_token_exchange):
-        http_client_token_exchange.api_key = "nylas-api-key"
+        http_client_token_exchange.api_key = "dover_nylas-api-key"
         auth = Auth(http_client_token_exchange)
         config = {
             "client_id": "abc-123",
@@ -179,7 +179,7 @@ class TestAuth:
                 "client_id": "abc-123",
                 "code": "code",
                 "redirect_uri": "https://example.com/oauth/callback",
-                "client_secret": "nylas-api-key",
+                "client_secret": "dover_nylas-api-key",
                 "grant_type": "authorization_code",
             },
             overrides=None,
@@ -251,7 +251,7 @@ class TestAuth:
         )
 
     def test_refresh_access_token_no_secret(self, http_client_token_exchange):
-        http_client_token_exchange.api_key = "nylas-api-key"
+        http_client_token_exchange.api_key = "dover_nylas-api-key"
         auth = Auth(http_client_token_exchange)
         config = {
             "redirect_uri": "https://example.com/oauth/callback",
@@ -268,7 +268,7 @@ class TestAuth:
                 "redirect_uri": "https://example.com/oauth/callback",
                 "refresh_token": "refresh-12345",
                 "client_id": "abc-123",
-                "client_secret": "nylas-api-key",
+                "client_secret": "dover_nylas-api-key",
                 "grant_type": "refresh_token",
             },
             overrides=None,
@@ -300,7 +300,7 @@ class TestAuth:
 
     @mock.patch("uuid.uuid4")
     def test_url_for_oauth2_pkce(self, mock_uuid4, http_client):
-        mock_uuid4.return_value = "nylas"
+        mock_uuid4.return_value = "dover_nylas"
         auth = Auth(http_client)
         config = {
             "client_id": "abc-123",
@@ -318,7 +318,7 @@ class TestAuth:
             result.url
             == "https://test.nylas.com/v3/connect/auth?client_id=abc-123&redirect_uri=https%3A//example.com/oauth/callback&scope=email.read_only%20calendar%20contacts&login_hint=test%40gmail.com&provider=google&prompt=select_provider%2Cdetect&state=abc-123-state&response_type=code&access_type=online&code_challenge=ZTk2YmY2Njg2YTNjMzUxMGU5ZTkyN2RiNzA2OWNiMWNiYTliOTliMDIyZjQ5NDgzYTZjZTMyNzA4MDllNjhhMg&code_challenge_method=s256"
         )
-        assert result.secret == "nylas"
+        assert result.secret == "dover_nylas"
         assert (
             result.secret_hash
             == "ZTk2YmY2Njg2YTNjMzUxMGU5ZTkyN2RiNzA2OWNiMWNiYTliOTliMDIyZjQ5NDgzYTZjZTMyNzA4MDllNjhhMg"
